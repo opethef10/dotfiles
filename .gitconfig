@@ -1,0 +1,27 @@
+[user]
+	name = Onur Arıkan
+	username = opethef10
+	email = onur93arikan@gmail.com
+[init]
+	defaultBranch = main
+[safe]
+	directory = .
+	directory = .
+	directory = /mnt/d/gdrive/kod/py/chat_analysis/
+	directory = D:/gdrive/kod/py/chat_analysis/
+	directory = /mnt/d/gdrive/kod/github/formula1turkiye.pythonanywhere.com
+[core]
+	autocrlf = input
+	eol = lf
+	filemode = false
+	editor = vim
+[alias]
+	adog = log --all --decorate --oneline --graph
+[push]
+	followTags = true
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[difftool]
+	prompt = false
+

@@ -1,0 +1,8 @@
+--verbose
+--embed-thumbnail
+--embed-metadata
+--embed-info-json
+--embed-subs
+--sub-langs en
+-o "/desktop/%(title)s.%(ext)s"
+
