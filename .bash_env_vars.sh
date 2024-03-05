@@ -7,6 +7,8 @@ export LANG=en_US.UTF-8
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
+
+export CDPATH=:/gdrive/:/desktop/:/downloads/:/gdrive/kod/github/
 export PATH="$HOME/gems/bin:$PATH"
 
 # Python env variables
