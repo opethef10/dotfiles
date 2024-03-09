@@ -29,6 +29,7 @@ set hidden
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
+hi Search ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
@@ -68,6 +69,11 @@ filetype plugin on
 set number
 " show tabs always
 set showtabline=2
+
+" Backup, undo and swap files directories
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point

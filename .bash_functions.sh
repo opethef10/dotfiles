@@ -92,3 +92,13 @@ weather() {
   curl -fGsS -H "Accept-Language: ${LANG%_*}" $args --compressed "wttr.in/${location}"
 }
 
+pyclean() {
+    if [ $# -eq 0 ]; then
+        echo "Error: Please provide a directory path."
+        return 1
+    fi
+
+    local path="$1"
+    find "$path" -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
+}
+

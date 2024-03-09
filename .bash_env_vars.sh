@@ -16,6 +16,7 @@ export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUTF8=1
 export PYTHONUNBUFFERED=1
 export PYTHONIOENCODING="utf8"
+export PYTHONPYCACHEPREFIX="${HOME}/.cache/pycache"
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
