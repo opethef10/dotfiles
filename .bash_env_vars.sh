@@ -4,6 +4,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export LANG=en_US.UTF-8
+export EDITOR=vim
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
