@@ -3,15 +3,12 @@
 		"right": [
 			{
 				"function": "powerline.segments.common.sys.uptime",
-				"priority": 30
+				"priority": 5
 			},
 			{
 				"function": "powerline.segments.common.wthr.weather",
 				"priority": 50
 			},
-                        {
-                                "function": "powerline.segments.common.net.network_load"
-                        },
 			{
 				"function": "powerline.segments.common.bat.battery"
 			},
