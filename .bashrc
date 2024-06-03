@@ -8,8 +8,10 @@ case $- in
       *) return;;
 esac
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
+if [[ "$(hostname)" == "EFONSTAPPEN" ]]; then
+    if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+        tmux attach -t default || tmux new -s default
+    fi
 fi
 
 # don't put duplicate lines or lines starting with space in the history.
