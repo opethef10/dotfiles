@@ -4,7 +4,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-waw2mp3() {
+wav2mp3() {
     input_file="$1"
     output_file="${input_file%.*}.mp3"
     ffmpeg -i "$input_file" -vn -ar 44100 -ac 2 -b:a 192k "$output_file"
