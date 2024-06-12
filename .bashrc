@@ -110,6 +110,11 @@ if [ -f ~/.bash_env_vars.sh ]; then
     . ~/.bash_env_vars.sh
 fi
 
+# Hidden environment variable definitions
+if [ -f ~/.env.sh ]; then
+    . ~/.env.sh
+fi
+
 # Source functions
 if [ -f ~/.bash_functions.sh ]; then
     . ~/.bash_functions.sh

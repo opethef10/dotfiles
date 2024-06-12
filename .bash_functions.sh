@@ -103,7 +103,23 @@ pyclean() {
 }
 
 todaymd() {
-    touch "$(date +%Y-%m-%d).md"
-    echo "$(date +%Y-%m-%d).md"
+    # Define the base directory
+    base_dir=$DAILY_NOTES_FOLDER
+
+    # Get the current year and month
+    year=$(date +%Y)
+    month=$(date +%m)
+
+    # Create the directory structure if it doesn't exist
+    mkdir -p "$base_dir/$year/$month"
+
+    # Define the file path
+    file_path="$base_dir/$year/$month/$(date +%Y-%m-%d).md"
+
+    # Create the file
+    touch "$file_path"
+
+    # Output the file path
+    echo "$file_path"
 }
 
