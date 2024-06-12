@@ -102,3 +102,8 @@ pyclean() {
     find "$path" -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
 }
 
+todaymd() {
+    touch "$(date +%Y-%m-%d).md"
+    echo "$(date +%Y-%m-%d).md"
+}
+
