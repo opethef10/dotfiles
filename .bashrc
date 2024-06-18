@@ -153,3 +153,6 @@ fi
 
 set -o vi
 
+# fzf bash sourcing
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

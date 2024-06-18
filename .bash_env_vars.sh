@@ -26,3 +26,9 @@ source ~/.local/bin/virtualenvwrapper.sh
 
 export WTTR_PARAMS="Fqm"
 
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type file'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Open in tmux popup if on tmux, otherwise use --height mode
+export FZF_DEFAULT_OPTS='--height 40% --layout reverse --border top'
+
