@@ -20,6 +20,9 @@ alias ytmp4="yt-dlp -S res:720,ext:mp4:m4a --recode mp4"
 
 alias rename_pane="printf '\033]2;%s\033\\'"
 
+# Rich aliases
+alias richmd="python -m rich.markdown"
+
 # Translation aliases
 alias enpl='trans en:pl -j'
 alias plen='trans pl:en -j'
