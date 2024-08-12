@@ -18,6 +18,7 @@ export PYTHONUTF8=1
 export PYTHONUNBUFFERED=1
 export PYTHONIOENCODING="utf8"
 export PYTHONPYCACHEPREFIX="${HOME}/.cache/pycache"
+export PYGAME_HIDE_SUPPORT_PROMPT="hide"
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
