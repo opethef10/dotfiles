@@ -1,7 +1,7 @@
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # some more ls aliases
-alias ls="ls --color=auto -p -F"
+alias ls="ls --color=auto -p -F -h"
 alias ll='ls -al'
 
 # Add an "alert" alias for long running commands.  Use like so:
