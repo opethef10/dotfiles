@@ -19,6 +19,7 @@ export PYTHONUNBUFFERED=1
 export PYTHONIOENCODING="utf8"
 export PYTHONPYCACHEPREFIX="${HOME}/.cache/pycache"
 export PYGAME_HIDE_SUPPORT_PROMPT="hide"
+export PYTHONSTARTUP=/gdrive/kod/py/__python_startup__.py
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
