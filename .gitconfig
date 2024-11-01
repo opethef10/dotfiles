@@ -17,6 +17,8 @@
 	editor = vim
 [alias]
 	adog = log --all --decorate --oneline --graph
+	hotfix-finish = "!f() { GIT_MERGE_AUTOEDIT=no git flow hotfix finish -m \"tag\" -p \"$1\"; }; f"
+	release-finish = "!f() { GIT_MERGE_AUTOEDIT=no git flow release finish -m \"tag\" -p \"$1\"; }; f"
 [push]
 	followTags = true
 [merge]
