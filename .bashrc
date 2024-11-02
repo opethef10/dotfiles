@@ -110,6 +110,11 @@ if [ -f ~/.bash_env_vars.sh ]; then
     . ~/.bash_env_vars.sh
 fi
 
+# Source fzf-git.sh
+if [ -f ~/fzf-git.sh ]; then
+    . ~/fzf-git.sh
+fi
+
 # Hidden environment variable definitions
 if [ -f ~/.env.sh ]; then
     . ~/.env.sh
