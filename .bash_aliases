@@ -3,6 +3,9 @@ alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 # some more ls aliases
 alias ls="ls --color=auto -p -F -h"
 alias ll='ls -al'
+alias cp='cp -i -v'
+alias mv='mv -i -v'
+alias rm='rm -i -v'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
