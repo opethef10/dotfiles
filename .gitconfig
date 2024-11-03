@@ -6,15 +6,13 @@
 	defaultBranch = main
 [safe]
 	directory = .
-	directory = .
-	directory = /mnt/d/gdrive/kod/py/chat_analysis/
-	directory = D:/gdrive/kod/py/chat_analysis/
 	directory = /mnt/d/gdrive/kod/github/formula1turkiye.pythonanywhere.com
 [core]
 	autocrlf = input
 	eol = lf
 	filemode = false
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RF
 [alias]
 	adog = log --all --decorate --oneline --graph
 	hotfix-finish = "!f() { GIT_MERGE_AUTOEDIT=no git flow hotfix finish -m \"tag\" -p \"$1\"; }; f"
@@ -27,3 +25,20 @@
 [difftool]
 	prompt = false
 
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
