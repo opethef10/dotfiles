@@ -114,6 +114,9 @@ let NERDTreeShowHidden=1
 " Show partial commands in the last line of the screen
 set showcmd
 
+" Show trailing spaces
+set list
+
 set rtp+=/usr/share/powerline/bindings/vim/
 set rtp+=/usr/lib/python3/dist-packages/
 python3 from powerline.vim import setup as powerline_setup
