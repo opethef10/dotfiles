@@ -115,11 +115,14 @@ todaymd() {
 
     # Define the file path
     file_path="$base_dir/$year/$month/$(date +%Y-%m-%d).md"
+    template_file="$base_dir/template.md"  # Path to the template file
 
-    # Create the file
-    touch "$file_path"
+    # Check if the daily note file exists
+    if [[ ! -f "$file_path" ]]; then
+        # If the file doesn't exist, copy the template to the daily note
+        cp "$template_file" "$file_path"
+    fi
 
     # Output the file path
     echo "$file_path"
 }
-
