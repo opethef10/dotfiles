@@ -33,4 +33,4 @@ export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Open in tmux popup if on tmux, otherwise use --height mode
 export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border top --preview 'bat --style=numbers --color=always --line-range :500 {}'"
-
+export FZF_COMPLETION_TRIGGER='...'
