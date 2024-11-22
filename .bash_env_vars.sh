@@ -26,6 +26,11 @@ export MYPY_CACHE_DIR="${HOME}/.cache/mypycache"
 export PYGAME_HIDE_SUPPORT_PROMPT="hide"
 export PYTHONSTARTUP=/gdrive/kod/py/__python_startup__.py
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/efon
