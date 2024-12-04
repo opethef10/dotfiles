@@ -117,6 +117,9 @@ set showcmd
 " Show trailing spaces
 set list
 
+" Show search count
+set shortmess-=S
+
 set rtp+=/usr/share/powerline/bindings/vim/
 set rtp+=/usr/lib/python3/dist-packages/
 python3 from powerline.vim import setup as powerline_setup
