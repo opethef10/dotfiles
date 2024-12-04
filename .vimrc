@@ -144,5 +144,6 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 call plug#end()
