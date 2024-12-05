@@ -152,7 +152,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
 Plug 'mhinz/vim-signify'
+Plug 'tmsvg/pear-tree'
 call plug#end()
 
 " key maps
