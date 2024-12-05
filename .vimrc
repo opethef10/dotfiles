@@ -154,3 +154,6 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 call plug#end()
+
+" key maps
+noremap Y y$
