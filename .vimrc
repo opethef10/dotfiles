@@ -117,6 +117,9 @@ set showcmd
 " Show trailing spaces
 set list
 
+" Set mouse for all modes
+set mouse=a
+
 " Show search count
 set shortmess-=S
 
