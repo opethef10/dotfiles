@@ -117,6 +117,7 @@ set showcmd
 
 " Show trailing spaces
 set list
+set listchars=tab:→\ ,trail:·,extends:…,precedes:…,nbsp:␣
 
 " Set mouse for all modes
 set mouse=a
