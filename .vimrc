@@ -24,7 +24,8 @@ set hidden
 " set autowriteall
 
 " Better command-line completion
-" set wildmenu
+set wildmenu
+set wildoptions=pum
 
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
