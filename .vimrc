@@ -165,3 +165,6 @@ noremap Y y$
 map QQ :qa!<CR>
 " XX: exit all (save all changes and close Vim), and without a warning
 map XX :xa!<CR>
+
+nnoremap <TAB> :bn<CR>
+nnoremap <S-TAB> :bp<CR>
