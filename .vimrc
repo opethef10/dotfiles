@@ -168,3 +168,5 @@ map XX :xa!<CR>
 
 nnoremap <TAB> :bn<CR>
 nnoremap <S-TAB> :bp<CR>
+nnoremap ; :
+nnoremap : ;
