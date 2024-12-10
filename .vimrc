@@ -162,9 +162,9 @@ call plug#end()
 " key maps
 noremap Y y$
 " QQ: quit all buffers, without saving, and without a warning
-map QQ :qa!<CR>
+noremap QQ :qa!<CR>
 " XX: exit all (save all changes and close Vim), and without a warning
-map XX :xa!<CR>
+noremap XX :xa!<CR>
 
 nnoremap <TAB> :bn<CR>
 nnoremap <S-TAB> :bp<CR>
