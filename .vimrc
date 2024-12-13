@@ -71,10 +71,16 @@ set number
 " show tabs always
 set showtabline=2
 
+" no swap file
+set noswapfile
 " Backup, undo and swap files directories
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
+" save undo trees in files
+set undofile
 set undodir=~/.vim/undo//
+set undolevels=10000 " How many undos
+
 
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
@@ -133,6 +139,8 @@ python3 del powerline_setup
 
 set laststatus=2
 
+" signcolumn is always on
+set signcolumn=yes
 " vim-signify
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
@@ -140,12 +148,12 @@ highlight SignifySignDelete ctermfg=red    guifg=#ff0000 cterm=NONE gui=NONE
 highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
 
 " vim-plug
+call plug#begin()
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-call plug#begin()
 
 " List your plugins here
 Plug 'tpope/vim-sensible'
@@ -157,7 +165,11 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'mhinz/vim-signify'
 Plug 'tmsvg/pear-tree'
+Plug 'luochen1990/rainbow'
+Plug 'mhinz/vim-startify'
 call plug#end()
+
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " key maps
 noremap Y y$
