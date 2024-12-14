@@ -147,6 +147,25 @@ highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
 highlight SignifySignDelete ctermfg=red    guifg=#ff0000 cterm=NONE gui=NONE
 highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
 
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+Bundle 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+set completeopt-=preview
+
 " vim-plug
 call plug#begin()
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
