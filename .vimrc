@@ -160,7 +160,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -186,6 +186,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tmsvg/pear-tree'
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
+Plug 'github/copilot.vim'
 call plug#end()
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
