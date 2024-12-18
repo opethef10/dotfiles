@@ -187,6 +187,8 @@ Plug 'tmsvg/pear-tree'
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'github/copilot.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
 call plug#end()
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
