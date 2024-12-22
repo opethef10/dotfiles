@@ -192,7 +192,7 @@ Plug 'nvie/vim-flake8'
 call plug#end()
 
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-let lightcolors =  ['magenta', 'cyan', 'green', 'yellow', 'darkyellow', 'red', 'white']
+let lightcolors =  ['green', 'yellow', 'cyan', 'darkyellow', 'red', 'magenta', 'white']
 let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
 let g:rainbow_conf = {
 \   'ctermfgs': (lightcolors),
