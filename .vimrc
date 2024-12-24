@@ -215,6 +215,11 @@ let &t_SR.="\e[4 q" "SR = REPLACE mode
 " let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 highlight MatchParen ctermbg=200 ctermfg=white guibg=lightblue guifg=white
 
+" colorscheme
+set background=dark
+" syntax enable
+colorscheme wildcharm
+
 noremap Y y$
 " QQ: quit all buffers, without saving, and without a warning
 noremap QQ :qa!<CR>
