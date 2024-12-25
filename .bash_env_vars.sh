@@ -34,7 +34,6 @@ eval "$(pyenv init -)"
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/efon
-source ~/.local/bin/virtualenvwrapper.sh
 
 export WTTR_PARAMS="Fqm"
 

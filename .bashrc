@@ -34,7 +34,8 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
+shopt -s extglob
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -141,10 +142,6 @@ if ! ps aux | grep -q '[p]ostgresql'; then
     sudo service postgresql start > /dev/null 2>&1
 fi
 
-
-shopt -s globstar
-shopt -s extglob
-
 # tab completion for symbolic linked directories
 bind 'set mark-symlinked-directories on'
 
@@ -161,4 +158,12 @@ set -o vi
 # fzf bash sourcing
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-. "$HOME/.cargo/env"
+# virtualenvwrapper
+if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
+    source ~/.local/bin/virtualenvwrapper.sh
+fi
+
+# cargo
+if [ -f "$HOME/.cargo/env" ]; then
+    source "$HOME/.cargo/env"
+fi
