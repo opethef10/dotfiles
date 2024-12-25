@@ -9,7 +9,7 @@ alias rm='rm -i -v'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias cal="ncal -b -M"
 alias wsl="wsl.exe"
@@ -33,4 +33,3 @@ alias entr='trans en:tr -j'
 alias tren='trans tr:en -j'
 alias pltr='trans pl:tr -j'
 alias trpl='trans tr:pl -j'
-
