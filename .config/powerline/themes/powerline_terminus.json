@@ -48,18 +48,18 @@
 			}
 		},
 		"powerline.segments.common.net.hostname": {
-			"before": " "
+			"before": ""
 		},
 		"powerline.segments.common.bat.battery": {
 			"args": {
 				"full_heart": "♥",
-				"empty_heart": "♥",
-				"online": "♥",
-				"offline": " "
+				"empty_heart": "♡",
+				"online":  "⚡",
+				"offline": "🔋"
 			}
 		},
 		"powerline.segments.common.sys.uptime": {
-			"before": "↑  "
+			"before": "↑ "
 		},
 		"powerline.segments.common.mail.email_imap_alert": {
 			"before": "MAIL "
