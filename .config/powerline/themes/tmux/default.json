@@ -5,9 +5,9 @@
 				"function": "powerline.segments.common.sys.uptime",
 				"priority": 5
 			},
-			{
-				"function": "powerline.segments.common.wthr.weather",
-				"priority": 50
+                        {
+				"function": "powerline.segments.common.sys.system_load",
+				"priority": 5
 			},
 			{
 				"function": "powerline.segments.common.bat.battery"
@@ -22,9 +22,6 @@
 					"format": "%H:%M",
 					"istime": true
 				}
-			},
-			{
-				"function": "powerline.segments.common.net.hostname"
 			}
 		]
 	}
