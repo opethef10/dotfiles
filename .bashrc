@@ -150,7 +150,7 @@ if [ -f ~/.local/lib/python3.12/site-packages/powerline/bindings/bash/powerline.
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
-  source ~/.local/lib/python3.12/site-packages/powerline/bindings/bash/powerline.sh
+  # source ~/.local/lib/python3.12/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 set -o vi
@@ -166,4 +166,8 @@ fi
 # cargo
 if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
+fi
+
+if [[ -f ~/.pureline.conf && -f ~/pureline/pureline ]]; then
+   source ~/pureline/pureline ~/.pureline.conf
 fi
