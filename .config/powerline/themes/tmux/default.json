@@ -12,6 +12,15 @@
 			{
 				"function": "powerline.segments.common.bat.battery"
 			},
+                        {
+                           "function": "powerline_owmweather.weather",
+                           "args": {
+                               "location_query": "Ankara,TR",
+                               "condition_as_icon": true,
+                               "post_condition": " ",
+                               "show": "condition,temp"
+                           }
+                        },
 			{
 				"function": "powerline.segments.common.time.date"
 			},
