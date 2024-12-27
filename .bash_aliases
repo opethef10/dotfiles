@@ -20,7 +20,6 @@ alias xp="explorer.exe"
 alias ytmp3="yt-dlp -x --audio-format mp3"
 alias ytmp4="yt-dlp -S res:720,ext:mp4:m4a --recode mp4"
 alias termbin="nc termbin.com 9999"
-alias tmux="tmux a || tmux"
 
 alias rename_pane="printf '\033]2;%s\033\\'"
 
