@@ -106,19 +106,19 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Source environment variable definitions
+# Source public environment variable definitions
 if [ -f ~/.bash_env_vars.sh ]; then
     . ~/.bash_env_vars.sh
+fi
+
+# Source secret environment variable definitions
+if [ -f ~/.secrets ]; then
+    . ~/.secrets
 fi
 
 # Source fzf-git.sh
 if [ -f ~/fzf-git.sh ]; then
     . ~/fzf-git.sh
-fi
-
-# Hidden environment variable definitions
-if [ -f ~/.env.sh ]; then
-    . ~/.env.sh
 fi
 
 # Source functions
