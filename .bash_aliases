@@ -7,6 +7,10 @@ alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
 
+# eza aliases
+alias ls='eza -G --group-directories-first --icons'
+alias ll='ls --binary --all --long --group --header --time-style long-iso'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
