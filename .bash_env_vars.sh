@@ -2,8 +2,8 @@ export PS1="\[\e[01;32m\]\u@\h \[\e[01;31m\]\w \[\e[96m\]\$(parse_git_branch)\[\
 export PATH="$HOME/.local/bin:/gdrive/kod/bin:$PATH"
 
 # History
-export HISTSIZE=-1
-export HISTFILESIZE=-1
+# export HISTSIZE=-1
+# export HISTFILESIZE=-1
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
