@@ -15,7 +15,7 @@
                         {
                            "function": "powerline_owmweather.weather",
                            "args": {
-                               "location_query": "Ankara,TR",
+                               "location_query": "Gdynia,PL",
                                "condition_as_icon": true,
                                "post_condition": " ",
                                "show": "condition,temp"

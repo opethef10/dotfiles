@@ -82,7 +82,7 @@ if [[ -z "$WTTR_PARAMS" ]]; then
 fi
 
 weather() {
-  local location="${1:-Ankara}"  # Default to Ankara if no location is provided
+  local location="${1:-Gdynia}"  # Default to Gdynia if no location is provided
   location="${location// /+}"
   command shift
   local args=""
