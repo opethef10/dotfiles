@@ -142,6 +142,10 @@ if ! ps aux | grep -q '[p]ostgresql'; then
     sudo service postgresql start > /dev/null 2>&1
 fi
 
+if ! pgrep -x dockerd > /dev/null; then
+    sudo service docker start > /dev/null 2>&1
+fi
+
 # tab completion for symbolic linked directories
 bind 'set mark-symlinked-directories on'
 
