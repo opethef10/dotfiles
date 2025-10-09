@@ -48,6 +48,9 @@ set visualbell
 " press <Enter> to continue
 set cmdheight=2
 
+" Show relative line numbers
+set relativenumber
+
 
 "------------------------------------------------------------
 " Indentation options {{{1
