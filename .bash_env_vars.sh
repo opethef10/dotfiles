@@ -4,6 +4,7 @@ export PATH="$HOME/.local/bin:/gdrive/kod/bin:$PATH"
 # History
 # export HISTSIZE=-1
 # export HISTFILESIZE=-1
+export HISTTIMEFORMAT="%F %T "
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
