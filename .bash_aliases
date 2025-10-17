@@ -1,4 +1,5 @@
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias lgdotfiles="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # some more ls aliases
 alias ls="ls --color=auto -p -F -h"
@@ -27,6 +28,7 @@ alias termbin="nc termbin.com 9999"
 
 alias vf="vim -c 'Files'"
 alias lg="lazygit"
+alias lzd="lazydocker"
 
 alias rename_pane="printf '\033]2;%s\033\\'"
 
