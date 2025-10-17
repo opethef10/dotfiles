@@ -88,10 +88,12 @@ set undolevels=10000 " How many undos
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
 if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-	autocmd TextYankPost * if v:event.operator ==# 'y' || v:event.operator ==# 'd' | call system('cat |' . s:clip, @0) | endif
-    augroup END
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' || v:event.operator ==# 'd' |
+          \ call system('iconv -f utf-8 -t utf-16le | ' . s:clip, @0) |
+          \ endif
+  augroup END
 endif
 
 autocmd BufWritePost .vimrc source %
