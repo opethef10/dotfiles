@@ -114,12 +114,25 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " NERDTree
-nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1
+
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>g :GFiles<CR>
+nnoremap <leader>r :Rg<CR>
+let g:fzf_layout = { 'down': '40%' }
+
+set splitbelow
+set splitright
+
+nnoremap <leader>t :term<CR>
+nnoremap <leader>vt :vert term<CR>
+
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -197,6 +210,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'preservim/nerdtree'
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 call plug#end()
 
 " vim-lsp
