@@ -304,8 +304,8 @@ function! ToggleFloaterm(name, cmd)
   endif
 endfunction
 
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
 let g:floaterm_borderchars = '─│─│╭╮╯╰'
 let g:floaterm_position = 'center'
 " Toggle the same terminal (show/hide)
