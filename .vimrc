@@ -310,8 +310,10 @@ let g:floaterm_borderchars = '─│─│╭╮╯╰'
 let g:floaterm_position = 'center'
 " Toggle the same terminal (show/hide)
 nnoremap <leader>t :FloatermToggle<CR>
-" nnoremap <silent> <F12> :FloatermToggle<CR>
-tnoremap <silent> <Esc> <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
 
 " Universal toggle keymaps (works in both normal and terminal mode)
 nnoremap <silent> <leader>tl :call ToggleFloaterm('lazygit', 'lazygit')<CR>
