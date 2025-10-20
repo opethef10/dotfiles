@@ -127,14 +127,9 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>g :GFiles<CR>
 nnoremap <leader>r :Rg<CR>
-let g:fzf_layout = { 'down': '40%' }
 
 set splitbelow
 set splitright
-
-nnoremap <leader>t :term<CR>
-nnoremap <leader>vt :vert term<CR>
-
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -213,6 +208,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'preservim/nerdtree'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " vim-lsp
@@ -298,3 +294,28 @@ nnoremap : ;
 
 " insert today's date
 nnoremap <Leader>d :r !date -I<CR>
+
+" Floaterm settings
+function! ToggleFloaterm(name, cmd)
+  if floaterm#terminal#get_bufnr(a:name) == -1
+    execute 'FloatermNew --name=' . a:name . ' ' . a:cmd
+  else
+    execute 'FloatermToggle ' . a:name
+  endif
+endfunction
+
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+let g:floaterm_borderchars = '─│─│╭╮╯╰'
+let g:floaterm_position = 'center'
+" Toggle the same terminal (show/hide)
+nnoremap <leader>t :FloatermToggle<CR>
+" nnoremap <silent> <F12> :FloatermToggle<CR>
+tnoremap <silent> <Esc> <C-\><C-n>:FloatermToggle<CR>
+
+" Universal toggle keymaps (works in both normal and terminal mode)
+nnoremap <silent> <leader>tl :call ToggleFloaterm('lazygit', 'lazygit')<CR>
+nnoremap <silent> <leader>td :call ToggleFloaterm('lazydocker', 'lazydocker')<CR>
+nnoremap <silent> <leader>tp :call ToggleFloaterm('python', 'python')<CR>
+nnoremap <silent> <leader>th :call ToggleFloaterm('htop', 'htop')<CR>
+nnoremap <silent> <leader>ty :call ToggleFloaterm('yazi', 'yazi')<CR>
