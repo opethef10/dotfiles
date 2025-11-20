@@ -18,7 +18,7 @@ alias alert='notify-send "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&
 
 alias cal="ncal -b -M"
 alias wsl="wsl.exe"
-alias open="wsl-open"
+alias open="xdg-open"
 alias py="python.exe"
 alias youtube-dl='python3 /usr/local/bin/youtube-dl'
 alias xp="explorer.exe"
