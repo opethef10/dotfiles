@@ -9,7 +9,7 @@ export HISTTIMEFORMAT="%F %T "
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export LANG=en_US.UTF-8
-export EDITOR=vim
+export EDITOR=nvim
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
