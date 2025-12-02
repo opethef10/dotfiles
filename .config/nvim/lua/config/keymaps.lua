@@ -6,8 +6,8 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Tab switch buffer
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+-- keymap("n", "<Tab>", ":bnext<CR>", opts)
+-- keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
 if vim.fn.executable("lazydocker") == 1 then
   keymap("n", "<leader>td", function()
