@@ -182,3 +182,6 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # opencode
 export PATH=/home/efon/.opencode/bin:$PATH
+
+# go lang
+export PATH=$PATH:/usr/local/go/bin
