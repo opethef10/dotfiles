@@ -4,9 +4,10 @@
 	email = onur93arikan@gmail.com
 [init]
 	defaultBranch = main
+[includeIf "gitdir:~/technarts/"]
+  path = .gitconfig-technarts
 [safe]
 	directory = .
-	directory = /mnt/d/gdrive/kod/github/formula1turkiye.pythonanywhere.com
 [core]
 	autocrlf = input
 	eol = lf
