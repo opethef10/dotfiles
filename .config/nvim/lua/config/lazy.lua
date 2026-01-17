@@ -39,14 +39,14 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
+        -- "gzip",
         -- "matchit",
         -- "matchparen",
         -- "netrwPlugin",
-        "tarPlugin",
+        -- "tarPlugin",
         "tohtml",
         "tutor",
-        "zipPlugin",
+        -- "zipPlugin",
       },
     },
   },
@@ -57,7 +57,7 @@ return require("lspconfig").pylsp.setup({
     pylsp = {
       plugins = {
         pycodestyle = {
-          maxLineLength = 89,
+          maxLineLength = 88,
         },
       },
     },
