@@ -52,7 +52,7 @@ require("lazy").setup({
   },
 })
 
-return require("lspconfig").pylsp.setup({
+vim.lsp.config('pylsp', {
   settings = {
     pylsp = {
       plugins = {
