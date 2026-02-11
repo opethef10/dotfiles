@@ -1,8 +1,18 @@
+# Verbose for debugging
 --verbose
+
+# Default resolution (can be overridden via command line)
+-S res:1080
+
+# Metadata, thumbnails, subtitles
 --embed-thumbnail
 --embed-metadata
 --embed-info-json
 --embed-subs
 --sub-langs en
+
+# Output path
 -o "/desktop/%(title)s.%(ext)s"
 
+# Merge video + audio into MP4 container
+--merge-output-format mp4
