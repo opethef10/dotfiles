@@ -16,3 +16,5 @@ vim.opt.laststatus = 3
 vim.opt.splitkeep = "screen"
 
 vim.g.ai_cmp = false
+vim.g.lazyvim_python_lsp = "pylsp"
+vim.g.lazyvim_python_ruff = "ruff"
