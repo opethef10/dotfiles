@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "formatter": false,
+  "permission": {
+    "edit": "allow",
+    "bash": "ask",
+    "skill": "ask",
+    "webfetch": "ask",
+    "doom_loop": "ask",
+    "external_directory": "ask"
+  },
+  "default_agent": "plan"
+}
