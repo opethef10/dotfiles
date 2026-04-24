@@ -137,10 +137,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if ! ps aux | grep -q '[p]ostgresql'; then
-    # PostgreSQL is not running, attempting to start
-    sudo service postgresql start > /dev/null 2>&1
-fi
+# if ! ps aux | grep -q '[p]ostgresql'; then
+#     # PostgreSQL is not running, attempting to start
+#     sudo service postgresql start > /dev/null 2>&1
+# fi
 
 if ! pgrep -x dockerd > /dev/null; then
     sudo service docker start > /dev/null 2>&1
@@ -163,9 +163,9 @@ set -o vi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # virtualenvwrapper
-if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
-    source ~/.local/bin/virtualenvwrapper.sh
-fi
+# if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
+#     source ~/.local/bin/virtualenvwrapper.sh
+# fi
 
 # cargo
 if [ -f "$HOME/.cargo/env" ]; then
