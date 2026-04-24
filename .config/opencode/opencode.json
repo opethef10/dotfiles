@@ -9,5 +9,12 @@
     "doom_loop": "ask",
     "external_directory": "ask"
   },
+  "server": {
+    "port": 4096,
+    "hostname": "0.0.0.0",
+    "mdns": true,
+    "mdnsDomain": "opencode.local",
+    "cors": ["http://localhost:5173"]
+  },
   "default_agent": "plan"
 }
