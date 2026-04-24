@@ -25,7 +25,6 @@ export PYTHONIOENCODING="utf8"
 export PYTHONPYCACHEPREFIX="${HOME}/.cache/pycache"
 export MYPY_CACHE_DIR="${HOME}/.cache/mypycache"
 export PYGAME_HIDE_SUPPORT_PROMPT="hide"
-export PYTHONSTARTUP=/gdrive/kod/py/__python_startup__.py
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
