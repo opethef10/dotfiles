@@ -16,5 +16,8 @@
     "mdnsDomain": "opencode.local",
     "cors": ["http://localhost:5173"]
   },
-  "default_agent": "plan"
+  "default_agent": "plan",
+  "experimental": {
+    "continue_loop_on_deny": true
+  }
 }
