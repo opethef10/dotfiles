@@ -18,3 +18,8 @@ vim.opt.splitkeep = "screen"
 vim.g.ai_cmp = false
 vim.g.lazyvim_python_lsp = "pylsp"
 vim.g.lazyvim_python_ruff = "ruff"
+vim.diagnostic.config({
+  virtual_lines = {
+    current_line = true
+  }
+})
