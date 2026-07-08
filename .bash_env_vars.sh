@@ -14,7 +14,7 @@ export EDITOR=nvim
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 
-export CDPATH=:~/github:/gdrive/:/desktop/:/downloads/
+export CDPATH=:~/github:~/kod/github:/gdrive/:/desktop/:/downloads/
 export PATH="$HOME/gems/bin:$PATH"
 
 # Python env variables
