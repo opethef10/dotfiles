@@ -4,7 +4,7 @@
 	email = onur93arikan@gmail.com
 [init]
 	defaultBranch = main
-[includeIf "gitdir:~/technarts/"]
+[includeIf "gitdir:~/kod/technarts/"]
   path = .gitconfig-technarts
 [safe]
 	directory = .
