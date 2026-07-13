@@ -127,3 +127,11 @@ todaymd() {
     # Output the file path
     echo "$file_path"
 }
+
+ntfy() {
+    if [ -t 0 ]; then
+        curl -d "$*" "$NTFY_URL"
+    else
+        curl -d @- "$NTFY_URL"
+    fi
+}
