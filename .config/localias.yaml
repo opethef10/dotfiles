@@ -1,0 +1,31 @@
+# localias config file syntax
+#
+# 	alias: port
+#
+# for example,
+#
+#   bareTLD: 9003 # serves over https and http
+#   implicitly_secure.test: 9002 # serves over https and http
+#   https://explicit_secure.test: 9000 # serves over https and http
+#   http://explicit_insecure.test: 9001 # serves over http only
+#
+# FRAMEWORK
+node.local: 3000
+vercel.local: 3000
+jekyll.local: 4000
+flask.local: 5000
+django.local: 8000
+python.local: 8000
+#PERSONAL
+onurarikan.local: 6686
+blog.onurarikan.local: 6687
+opethef10.local: 6687
+whattheefon.local: 6688
+gokturkce.local: 7320
+verif1.local: 8889
+syllabify.local: 20210
+splendid.local: 20240
+bestdjangotemplate.local: 20251
+elo.local: 20254
+onurin.local: 20261
+solar.local: 50412
