@@ -164,8 +164,8 @@ if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
 fi
 
-if [[ -f ~/.pureline.conf && -f ~/pureline/pureline ]]; then
-   source ~/pureline/pureline ~/.pureline.conf
+if [[ -f "$XDG_CONFIG_HOME/pureline/pureline.conf" && -f ~/kod/clones/pureline/pureline ]]; then
+   source ~/kod/clones/pureline/pureline "$XDG_CONFIG_HOME/pureline/pureline.conf"
 fi
 
 export NVM_DIR="$HOME/.config/nvm"
