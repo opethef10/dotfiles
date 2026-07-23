@@ -5,7 +5,7 @@
 [init]
 	defaultBranch = main
 [includeIf "gitdir:~/kod/technarts/"]
-  path = .gitconfig-technarts
+  path = ~/.config/git/technarts
 [safe]
 	directory = .
 [core]
@@ -13,7 +13,7 @@
 	eol = lf
 	filemode = false
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RF
+	; pager = diff-so-fancy | less --tabs=4 -RF
 [alias]
 	adog = log --all --decorate --oneline --graph
 	hotfix-finish = "!f() { GIT_MERGE_AUTOEDIT=no git flow hotfix finish -m \"tag\" -p \"$1\"; }; f"
@@ -25,6 +25,17 @@
 	conflictstyle = diff3
 [difftool]
 	prompt = false
+
+[pager]
+    # Use a pager if the difftool output is larger than one screenful,
+    # consistent with the behaviour of `git diff`.
+    difftool = true
+
+[diff]
+    # Set difftastic as the default difftool, so we don't need to specify
+    # `-t difftastic` every time.
+    external = difft
+    tool = difftastic
 
 [interactive]
 	diffFilter = diff-so-fancy --patch

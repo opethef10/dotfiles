@@ -159,9 +159,6 @@ fi
 
 set -o vi
 
-# fzf bash sourcing
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # virtualenvwrapper
 # if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
 #     source ~/.local/bin/virtualenvwrapper.sh
@@ -185,3 +182,5 @@ export PATH=/home/efon/.opencode/bin:$PATH
 
 # go lang
 export PATH=$PATH:/usr/local/go/bin
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash

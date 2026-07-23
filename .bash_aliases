@@ -42,3 +42,6 @@ alias entr='trans en:tr -j'
 alias tren='trans tr:en -j'
 alias pltr='trans pl:tr -j'
 alias trpl='trans tr:pl -j'
+
+# xdg related aliases
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
