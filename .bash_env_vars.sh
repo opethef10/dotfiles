@@ -30,11 +30,6 @@ export PYTHONPYCACHEPREFIX="${HOME}/.cache/pycache"
 export MYPY_CACHE_DIR="${HOME}/.cache/mypycache"
 export PYGAME_HIDE_SUPPORT_PROMPT="hide"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $PYENV_ROOT/bin ]] && eval "$(pyenv init -)"
-
 export WTTR_PARAMS="Fqm"
 
 # fzf
