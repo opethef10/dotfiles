@@ -159,11 +159,6 @@ fi
 
 set -o vi
 
-# virtualenvwrapper
-# if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
-#     source ~/.local/bin/virtualenvwrapper.sh
-# fi
-
 # cargo
 if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
