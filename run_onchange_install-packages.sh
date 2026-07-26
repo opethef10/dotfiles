@@ -1,32 +1,30 @@
 #!/usr/bin/env bash
 set -eufo pipefail
 
-{{- if (env "TERMUX_VERSION") }}
-PKG_INSTALL="pkg install -y"
-{{- else }}
-PKG_INSTALL="sudo apt install -y"
-sudo apt update
-{{- end }}
+if [ -n "${TERMUX_VERSION:-}" ]; then
+  echo "This script does not support Termux. Aborting." >&2
+  exit 1
+fi
 
-# --- apt/pkg packages ---
-{{- if (env "TERMUX_VERSION") }}
-$PKG_INSTALL build-essential eza tmux bat fd ripgrep ncdu python
-{{- else }}
-$PKG_INSTALL build-essential eza tmux bat fd-find ripgrep fastfetch ncdu python3-pip
-{{- end }}
+sudo apt update
+sudo apt install -y build-essential eza tmux bat fd-find ripgrep fastfetch ncdu python3-pip
 
 # batcat/fdfind are named differently on Debian/Ubuntu; symlink to expected names
 mkdir -p ~/.local/bin
-{{- if not (env "TERMUX_VERSION") }}
 [ -e ~/.local/bin/bat ] || ln -s "$(command -v batcat)" ~/.local/bin/bat
 [ -e ~/.local/bin/fd ] || ln -s "$(command -v fdfind)" ~/.local/bin/fd
-{{- end }}
 
-# --- neovim (appimage) ---
+# --- neovim (static tarball — no FUSE dependency like the appimage had) ---
 if ! command -v nvim >/dev/null 2>&1; then
-  curl -fLo ~/.local/bin/nvim \
-    https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-  chmod u+x ~/.local/bin/nvim
+  TMP_DIR=$(mktemp -d)
+  curl -Lo "$TMP_DIR/nvim.tar.gz" \
+    https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+  tar xzf "$TMP_DIR/nvim.tar.gz" -C "$TMP_DIR"
+  mkdir -p ~/.local/opt
+  rm -rf ~/.local/opt/nvim
+  mv "$TMP_DIR"/nvim-linux-x86_64 ~/.local/opt/nvim
+  ln -sf ~/.local/opt/nvim/bin/nvim ~/.local/bin/nvim
+  rm -rf "$TMP_DIR"
 fi
 
 # --- opencode ---
@@ -35,7 +33,7 @@ if ! command -v opencode >/dev/null 2>&1; then
 fi
 
 # --- pureline ---
-if [ ! -d ~/pureline ]; then
+if [ ! -d ~/kod/clones/pureline ]; then
   git clone https://github.com/chris-marsh/pureline.git ~/kod/clones/pureline
 fi
 
@@ -109,7 +107,7 @@ if ! command -v difft >/dev/null 2>&1; then
   chmod +x ~/.local/bin/difft
   rm -rf "$TMP_DIR"
 fi
-  #
+
 # --- localias (requires Go, which is already manually installed at /usr/local/go) ---
 if ! command -v localias >/dev/null 2>&1 && command -v go >/dev/null 2>&1; then
   go install github.com/peterldowns/localias/cmd/localias@latest
@@ -119,7 +117,6 @@ fi
 # fill in once you know where each came from originally:
 #   gitlogue, lazysql, lazyssh, tclip, sanitizefs, party.py,
 #   open / wsl-open / xdg-open
-
 
 # --- gitflow ---
 if ! command -v git-flow >/dev/null 2>&1; then
