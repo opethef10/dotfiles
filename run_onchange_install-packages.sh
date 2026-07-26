@@ -82,11 +82,6 @@ if ! command -v yt-dlp >/dev/null 2>&1; then
   chmod +x ~/.local/bin/yt-dlp
 fi
 
-# --- diff-so-fancy (via npm, since nvm/npm already set up) ---
-if ! command -v diff-so-fancy >/dev/null 2>&1; then
-  npm install -g diff-so-fancy
-fi
-
 # --- diff-highlight (ships inside git's contrib, just needs symlinking) ---
 if [ ! -e ~/.local/bin/diff-highlight ]; then
   GIT_CONTRIB="/usr/share/doc/git/contrib/diff-highlight/diff-highlight"
