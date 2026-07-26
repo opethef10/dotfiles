@@ -2,6 +2,19 @@
 
 Managed with [chezmoi](https://www.chezmoi.io/).
 
+## Install chezmoi
+
+**Linux / macOS:**
+```bash
+curl -fsLS https://get.chezmoi.io | sh
+```
+
+**Windows:**
+
+```powershell
+winget install twpayne.chezmoi
+```
+
 ## New machine setup
 
 ```bash
