@@ -9,7 +9,11 @@ sudo apt update
 {{- end }}
 
 # --- apt/pkg packages ---
+{{- if (env "TERMUX_VERSION") }}
+$PKG_INSTALL build-essential eza tmux bat fd ripgrep ncdu python
+{{- else }}
 $PKG_INSTALL build-essential eza tmux bat fd-find ripgrep fastfetch ncdu python3-pip
+{{- end }}
 
 # batcat/fdfind are named differently on Debian/Ubuntu; symlink to expected names
 mkdir -p ~/.local/bin
