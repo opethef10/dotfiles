@@ -129,10 +129,10 @@ if ! command -v git-flow >/dev/null 2>&1; then
 fi
 
 # --- personal repo clone ---
-if [ ! -d ~/kod/github/clones/Hetzner-Zero-Trust-VPS ]; then
-  mkdir -p ~/kod/github/clones
+if [ ! -d ~/kod/clones/Hetzner-Zero-Trust-VPS ]; then
+  mkdir -p ~/kod/clones
   git clone https://github.com/marton-harangi/Hetzner-Zero-Trust-VPS.git ~/kod/clones/Hetzner-Zero-Trust-VPS
-  chmod +x ~/kod/github/clones/Hetzner-Zero-Trust-VPS/*.sh
+  chmod +x ~/kod/clones/Hetzner-Zero-Trust-VPS/*.sh
 fi
 
 # --- powerline (pip) ---
