@@ -7,7 +7,7 @@ if [ -n "${TERMUX_VERSION:-}" ]; then
 fi
 
 sudo apt update
-sudo apt install -y build-essential eza tmux bat fd-find ripgrep fastfetch ncdu python3-pip
+sudo apt install -y build-essential eza tmux bat fd-find ripgrep ncdu python3-pip
 
 # batcat/fdfind are named differently on Debian/Ubuntu; symlink to expected names
 mkdir -p ~/.local/bin
