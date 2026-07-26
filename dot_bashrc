@@ -116,35 +116,11 @@ if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
 
-# Source fzf-git.sh
-if [ -f ~/fzf-git.sh ]; then
-    . ~/fzf-git.sh
-fi
-
 # Source functions
 if [ -f ~/.bash_functions.sh ]; then
     . ~/.bash_functions.sh
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-# if ! ps aux | grep -q '[p]ostgresql'; then
-#     # PostgreSQL is not running, attempting to start
-#     sudo service postgresql start > /dev/null 2>&1
-# fi
-
-if ! pgrep -x dockerd > /dev/null; then
-    sudo service docker start > /dev/null 2>&1
-fi
 
 # tab completion for symbolic linked directories
 bind 'set mark-symlinked-directories on'
@@ -152,25 +128,13 @@ bind 'set mark-symlinked-directories on'
 # Powerline configuration
 if [ -f ~/.local/lib/python3.12/site-packages/powerline/bindings/bash/powerline.sh ]; then
   powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  # source ~/.local/lib/python3.12/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 set -o vi
 
-# cargo
-if [ -f "$HOME/.cargo/env" ]; then
-    source "$HOME/.cargo/env"
-fi
-
 if [[ -f "$XDG_CONFIG_HOME/pureline/pureline.conf" && -f ~/kod/clones/pureline/pureline ]]; then
    source ~/kod/clones/pureline/pureline "$XDG_CONFIG_HOME/pureline/pureline.conf"
 fi
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
