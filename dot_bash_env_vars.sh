@@ -1,25 +1,45 @@
 export PS1="\[\e[01;32m\]\u@\h \[\e[01;31m\]\w \[\e[96m\]\$(parse_git_branch)\[\e[00m\]\n$ "
-export PATH="$HOME/.local/bin:$HOME/kod/bin:/gdrive/kod/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/kod/github/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+
+export CDPATH=:~/kod/github:/gdrive/:/desktop/:/downloads/
+
+# XDG paths
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# XDG related environment variables
+export GOPATH="$XDG_DATA_HOME/go"
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME/npm/config/npm-init.js"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR/npm"
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+export CALCHISTFILE="$XDG_CACHE_HOME/calc_history"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # History
 # export HISTSIZE=-1
 # export HISTFILESIZE=-1
 export HISTTIMEFORMAT="%F %T "
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-export GOPATH="$XDG_DATA_HOME/go"
 export LANG=en_US.UTF-8
 export EDITOR=nvim
-
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-
-export CDPATH=:~/github:~/kod/github:/gdrive/:/desktop/:/downloads/
-export PATH="$HOME/gems/bin:$PATH"
 
 # Python env variables
 export PYTHONDONTWRITEBYTECODE=1
@@ -45,21 +65,3 @@ export FZF_ALT_C_OPTS="
 export FZF_CTRL_R_OPTS="
   --preview-window=hidden"
 export FZF_COMPLETION_TRIGGER='...'
-
-# XDG related environment variables
-export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
-export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
-export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME/npm/config/npm-init.js"
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
-export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR/npm"
-export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
-export CALCHISTFILE="$XDG_CACHE_HOME/calc_history"
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
-export HISTFILE="$XDG_STATE_HOME/bash/history"
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
-export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
