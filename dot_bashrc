@@ -124,16 +124,6 @@ fi
 # tab completion for symbolic linked directories
 bind 'set mark-symlinked-directories on'
 
-# Powerline configuration
-# if [ -f ~/.local/lib/python3.12/site-packages/powerline/bindings/bash/powerline.sh ]; then
-#   powerline-daemon -q
-# fi
-#
-#
-# if [[ -f "$XDG_CONFIG_HOME/pureline/pureline.conf" && -f ~/kod/clones/pureline/pureline ]]; then
-# source ~/kod/clones/pureline/pureline "$XDG_CONFIG_HOME/pureline/pureline.conf"
-# fi
-
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 
 eval "$(starship init bash)"
