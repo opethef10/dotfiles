@@ -129,9 +129,16 @@ todaymd() {
 }
 
 ntfy() {
+    if [ -z "$NTFY_URL" ]; then
+        echo "Error: NTFY_URL is not set" >&2
+        return 1
+    fi
+
+    local topic="${NTFY_TOPIC:-$(hostname)}"
+
     if [ -t 0 ]; then
-        curl -d "$*" "$NTFY_URL"
+        curl -d "$*" "${NTFY_URL}/${topic}"
     else
-        curl -d @- "$NTFY_URL"
+        curl -d @- "${NTFY_URL}/${topic}"
     fi
 }
