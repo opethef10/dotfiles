@@ -12,9 +12,40 @@ wav2mp3() {
 }
 
 mp4compress() {
-    input_file="$1"
-    output_file="${input_file%.*}_compressed.mp4"
-    ffmpeg -i "$input_file" -vcodec libx265 -crf 28 "$output_file"
+    local preset_name="${2:-balanced}"
+    local input_file="$1"
+
+    if [[ -z "$input_file" ]]; then
+        echo "Usage: mp4compress <input_file> [preset]"
+        echo "Presets: fast, fast_threads, balanced (default), small, archive"
+        return 1
+    fi
+
+    local preset crf extra_args=()
+    case "$preset_name" in
+        fast)          preset=veryfast; crf=24 ;;
+        fast_threads)  preset=veryfast; crf=24
+                       extra_args=(-x265-params "frame-threads=16:wpp=1") ;;
+        balanced)      preset=medium;   crf=24 ;;
+        small)         preset=slow;     crf=28 ;;
+        archive)       preset=slow;     crf=20 ;;
+        *)
+            echo "Unknown preset: $preset_name"
+            echo "Presets: fast, fast_threads, balanced, small, archive"
+            return 1
+            ;;
+    esac
+
+    local output_file="${input_file%.*}_${preset_name}.mp4"
+
+    ffmpeg -i "$input_file" \
+        -c:v libx265 \
+        -preset "$preset" \
+        -crf "$crf" \
+        -threads 0 \
+        "${extra_args[@]}" \
+        -c:a copy \
+        "$output_file"
 }
 
 chmod_recursive() {
