@@ -5,7 +5,11 @@ edit = [
 	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 ]
 open = [
-	{ run = 'wsl-open "$1"',                desc = "Open", for = "linux" },
+  { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+	{ run = 'wopen "$1"', desc = "Open in Windows", for = "linux" },
+]
+read = [
+	{ run = 'zathura "$1"', desc = "Open with zathura", orphan = true, for = "linux" },
 ]
 reveal = [
 	{ run = 'wsl-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
@@ -36,3 +40,9 @@ run  = "git"
 group   = "git"
 url = "*/"
 run  = "git"
+
+[open]
+prepend_rules = [
+  { mime = "video/*", use = "play" },
+  { mime = "application/pdf", use = "read" },
+]
