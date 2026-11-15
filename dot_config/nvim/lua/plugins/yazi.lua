@@ -6,6 +6,11 @@ return {
     { "nvim-lua/plenary.nvim", lazy = true },
   },
   keys = {
+    {
+      "<leader>y",
+      "/",
+      desc = "yazi",
+    },
     -- 👇 in this section, choose your own keymappings!
     {
       "<leader>yo",
