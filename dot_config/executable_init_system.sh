@@ -94,3 +94,11 @@ sudo apt install ncdu -y
 sudo apt install python3-pip -y
 
 curl -fsSL https://opencode.ai/install | bash
+
+# zoxide
+if ! command -v zoxide &>/dev/null; then
+  echo "Installing zoxide..."
+  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+else
+  echo "zoxide already installed, skipping"
+fi
