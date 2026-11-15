@@ -4,8 +4,6 @@
 	email = onur93arikan@gmail.com
 [init]
 	defaultBranch = main
-[includeIf "gitdir:~/kod/technarts/"]
-  path = ~/.config/git/technarts
 [safe]
 	directory = .
 [core]
