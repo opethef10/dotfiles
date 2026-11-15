@@ -126,3 +126,14 @@ fi
 
 # Openers/previewers used by yazi.toml
 sudo apt install zathura libimage-exiftool-perl -y
+
+# WSL-only tools
+if grep -qi microsoft /proc/version; then
+  if ! command -v wsl-open &>/dev/null; then
+    echo "Installing wsl-open..."
+    curl -fsSLo ~/.local/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh
+    chmod +x ~/.local/bin/wsl-open
+  else
+    echo "wsl-open already installed, skipping"
+  fi
+fi
