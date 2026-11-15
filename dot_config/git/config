@@ -19,6 +19,10 @@
 	adog = log --all --decorate --oneline --graph
 	hotfix-finish = "!f() { GIT_MERGE_AUTOEDIT=no git flow hotfix finish -m \"tag\" -p \"$1\"; }; f"
 	release-finish = "!f() { GIT_MERGE_AUTOEDIT=no git flow release finish -m \"tag\" -p \"$1\"; }; f"
+	# Difftastic versions of log/show/diff (from the difftastic docs), e.g. `git dlog -p`
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
 [push]
 	followTags = true
 [merge]
