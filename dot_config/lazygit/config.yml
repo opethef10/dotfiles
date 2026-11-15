@@ -1,0 +1,65 @@
+gui:
+  nerdFontsVersion: "3"
+  # Catppuccin Mocha (blue accent), matching tmux; from github.com/catppuccin/lazygit
+  theme:
+    activeBorderColor: ["#89b4fa", bold]
+    inactiveBorderColor: ["#a6adc8"]
+    searchingActiveBorderColor: ["#f9e2af"]
+    optionsTextColor: ["#89b4fa"]
+    selectedLineBgColor: ["#313244"]
+    inactiveViewSelectedLineBgColor: ["#6c7086"]
+    cherryPickedCommitFgColor: ["#89b4fa"]
+    cherryPickedCommitBgColor: ["#45475a"]
+    markedBaseCommitFgColor: ["#89b4fa"]
+    markedBaseCommitBgColor: ["#f9e2af"]
+    unstagedChangesColor: ["#f38ba8"]
+    defaultFgColor: ["#cdd6f4"]
+  authorColors:
+    "*": "#b4befe"
+  showRandomTip: false
+  showCommandLog: false # toggle with @ when needed
+  showNumstatInFilesView: true
+  expandFocusedSidePanel: true
+os:
+  editPreset: nvim
+git:
+  # Press | (or \ backwards) in lazygit to cycle between these
+  diffRenderers:
+    - name: diff-so-fancy
+      type: stdinFilter
+      command: diff-so-fancy
+    - name: difftastic
+      type: extDiff
+      command: difft --color=always --display=inline # inline: diff panel is narrow
+    - name: plain
+      type: rawGit
+customCommands:
+  # Conventional commit: type → optional scope → message (Files panel, ctrl+v)
+  - key: <c-v>
+    context: files
+    description: Conventional commit
+    prompts:
+      - type: menu
+        key: Type
+        title: Type of change
+        options:
+          - { value: feat, description: "A new feature" }
+          - { value: fix, description: "A bug fix" }
+          - { value: chore, description: "Maintenance, no code/feature change" }
+          - { value: refactor, description: "Code change that is neither a fix nor a feature" }
+          - { value: docs, description: "Documentation only" }
+          - { value: style, description: "Formatting, whitespace" }
+          - { value: perf, description: "Performance improvement" }
+          - { value: test, description: "Adding or fixing tests" }
+          - { value: build, description: "Build system or dependencies" }
+          - { value: ci, description: "CI configuration" }
+          - { value: revert, description: "Reverts a previous commit" }
+      - type: input
+        key: Scope
+        title: Scope (optional, e.g. nvim)
+      - type: input
+        key: Message
+        title: Message
+    command: >-
+      git commit -m {{ printf "%s%s: %s" .Form.Type (and .Form.Scope (printf "(%s)" .Form.Scope)) .Form.Message | quote }}
+    loadingText: Committing...
