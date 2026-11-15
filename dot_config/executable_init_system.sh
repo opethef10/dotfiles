@@ -102,3 +102,11 @@ if ! command -v zoxide &>/dev/null; then
 else
   echo "zoxide already installed, skipping"
 fi
+
+# fnm (install dir matches FNM_PATH in .bashrc; shell setup is already in .bashrc)
+if [ ! -x "$XDG_DATA_HOME/fnm/fnm" ]; then
+  echo "Installing fnm..."
+  curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$XDG_DATA_HOME/fnm" --skip-shell
+else
+  echo "fnm already installed, skipping"
+fi
