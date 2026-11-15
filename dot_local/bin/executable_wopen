@@ -1,0 +1,20 @@
+#!/bin/bash
+# User-local xdg-open replacement for WSL
+# Handles relative paths, /mnt/... paths, and WSL-native paths
+
+# Exit if no argument
+if [ -z "$1" ]; then
+    echo "Usage: wopen <file-or-url>"
+    exit 1
+fi
+
+# Get the absolute path
+target="$(realpath "$1" 2>/dev/null || echo "$1")"
+
+# Convert /mnt/... paths to Windows paths
+if [[ "$target" == /mnt/* ]]; then
+    target="$(wslpath -w "$target")"
+fi
+
+# Open in default Windows app
+wslview "$target"

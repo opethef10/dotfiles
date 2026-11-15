@@ -1,0 +1,4 @@
+{{- if not (contains "microsoft" (lower .chezmoi.kernel.osrelease)) }}
+# WSL-only files
+.local/bin/wopen
+{{- end }}
