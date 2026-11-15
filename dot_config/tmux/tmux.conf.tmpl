@@ -1,6 +1,14 @@
+{{- /* vps = true in ~/.config/chezmoi/chezmoi.toml [data] marks a server */ -}}
+{{- $vps := and (hasKey . "vps") .vps -}}
 unbind C-b
+{{- if $vps }}
+# Different prefix on servers so it doesn't clash with tmux on the local machine
+set-option -g prefix M-x
+bind-key M-x send-prefix
+{{- else }}
 set-option -g prefix M-z
 bind-key M-z send-prefix
+{{- end }}
 
 set-window-option -g mode-keys vi
 
@@ -43,7 +51,8 @@ setw -g monitor-activity off
 set -g bell-action none
 
 set-option -g status on
-set-option -g status-interval 1
+{{- /* servers refresh less often to keep load down */}}
+set-option -g status-interval {{ if $vps }}5{{ else }}1{{ end }}
 set-option -g status-justify centre
 set-option -g status-keys vi
 set-option -g status-position bottom
@@ -68,11 +77,16 @@ set -g status-left-length 100
 set -g status-left ""
 set -ag status-left "#{E:@catppuccin_status_host}"
 set -ag status-left "#{E:@catppuccin_status_session}"
+{{- if $vps }}
+# Servers: only load, uptime and date
+set -gF status-right "#{E:@catppuccin_status_load}"
+{{- else }}
 set -ag status-left "#{E:@catppuccin_status_application}"
 set -gF status-right "#{E:@catppuccin_status_battery}"
 set -agF status-right "#{E:@catppuccin_status_cpu}"
 set -agF status-right "#{E:@catppuccin_status_ram}"
 set -agF status-right "#{E:@catppuccin_status_load}"
+{{- end }}
 set -ag status-right "#{E:@catppuccin_status_uptime}"
 set -ag status-right "#{E:@catppuccin_status_date_time}"
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.local/share/tmux/plugins"
