@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
+# Don't rely on the shell env: this may run before .bash_env_vars.sh is ever sourced
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+WORKDIR="$(mktemp -d)"
+trap 'rm -rf "$WORKDIR"' EXIT
 
 mkdir -p ~/.local/bin
 mkdir -p ~/kod/clones
@@ -12,10 +18,9 @@ sudo apt install tmux -y
 # Install neovim
 if ! command -v nvim &>/dev/null; then
   echo "Installing neovim..."
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-  tar xzf nvim-linux-x86_64.tar.gz -C "$TMPDIR"
-  mv -f "$TMPDIR/nvim-linux-x86_64/bin/nvim" ~/.local/bin/nvim
-  rm -rf "$TMPDIR/nvim-linux-x86_64" nvim-linux-x86_64.tar.gz
+  curl -Lo "$WORKDIR/nvim.tar.gz" https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+  tar xzf "$WORKDIR/nvim.tar.gz" -C "$WORKDIR"
+  mv -f "$WORKDIR/nvim-linux-x86_64/bin/nvim" ~/.local/bin/nvim
   echo "neovim installed"
 else
   echo "nvim already installed, skipping"
@@ -34,10 +39,9 @@ if ! command -v lazygit &>/dev/null; then
   echo "Installing lazygit..."
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
   LAZYGIT_ARCH=$(uname -m | sed -e 's/aarch64/arm64/')
-  curl -Lo "$TMPDIR/lazygit.tar.gz" "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LAZYGIT_ARCH}.tar.gz"
-  tar xf "$TMPDIR/lazygit.tar.gz" -C "$TMPDIR"
-  mv -f "$TMPDIR/lazygit" ~/.local/bin/lazygit
-  rm "$TMPDIR/lazygit.tar.gz"
+  curl -Lo "$WORKDIR/lazygit.tar.gz" "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LAZYGIT_ARCH}.tar.gz"
+  tar xf "$WORKDIR/lazygit.tar.gz" -C "$WORKDIR"
+  mv -f "$WORKDIR/lazygit" ~/.local/bin/lazygit
   echo "lazygit installed"
 else
   echo "lazygit already installed, skipping"
@@ -57,10 +61,9 @@ echo "Installing fzf..."
 # Git Flow
 if ! command -v git-flow &>/dev/null; then
   echo "Installing git-flow..."
-  curl -OL https://raw.github.com/nvie/gitflow/develop/contrib/gitflow-installer.sh
-  chmod +x gitflow-installer.sh
-  sudo ./gitflow-installer.sh
-  rm -f gitflow-installer.sh
+  curl -Lo "$WORKDIR/gitflow-installer.sh" https://raw.github.com/nvie/gitflow/develop/contrib/gitflow-installer.sh
+  chmod +x "$WORKDIR/gitflow-installer.sh"
+  (cd "$WORKDIR" && sudo ./gitflow-installer.sh)
   echo "git-flow installed"
 else
   echo "git-flow already installed, skipping"
