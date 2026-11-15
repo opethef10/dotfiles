@@ -128,7 +128,7 @@ bind 'set mark-symlinked-directories on'
 
 eval "$(starship init bash)"
 
-eval "$(zoxide init bash)"
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
 # fnm
 FNM_PATH="$XDG_DATA_HOME/fnm"
