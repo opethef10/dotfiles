@@ -9,8 +9,11 @@ local opts = { noremap = true, silent = true }
 -- keymap("n", "<Tab>", ":bnext<CR>", opts)
 -- keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
+-- Misc operations group
+keymap("n", "<leader>m", "/", { desc = "misc" })
+
 if vim.fn.executable("lazydocker") == 1 then
-  keymap("n", "<leader>td", function()
+  keymap("n", "<leader>md", function()
     Snacks.terminal("lazydocker", { esc_esc = false, ctrl_hjkl = false })
   end,
     {desc = "Lazydocker"})
