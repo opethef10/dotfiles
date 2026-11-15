@@ -110,3 +110,16 @@ if [ ! -x "$XDG_DATA_HOME/fnm/fnm" ]; then
 else
   echo "fnm already installed, skipping"
 fi
+
+# Yazi
+if ! command -v yazi &>/dev/null; then
+  echo "Installing yazi..."
+  sudo apt install unzip -y
+  YAZI_TARGET="$(uname -m)-unknown-linux-gnu"
+  curl -Lo "$WORKDIR/yazi.zip" "https://github.com/sxyazi/yazi/releases/latest/download/yazi-${YAZI_TARGET}.zip"
+  unzip -q "$WORKDIR/yazi.zip" -d "$WORKDIR"
+  mv -f "$WORKDIR/yazi-${YAZI_TARGET}/yazi" "$WORKDIR/yazi-${YAZI_TARGET}/ya" ~/.local/bin/
+  echo "yazi installed"
+else
+  echo "yazi already installed, skipping"
+fi
