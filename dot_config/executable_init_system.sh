@@ -137,3 +137,12 @@ if grep -qi microsoft /proc/version; then
     echo "wsl-open already installed, skipping"
   fi
 fi
+
+# diff-so-fancy (git pager and `git add -p` filter)
+if ! command -v diff-so-fancy &>/dev/null; then
+  echo "Installing diff-so-fancy..."
+  curl -fsSLo ~/.local/bin/diff-so-fancy https://github.com/so-fancy/diff-so-fancy/releases/latest/download/diff-so-fancy
+  chmod +x ~/.local/bin/diff-so-fancy
+else
+  echo "diff-so-fancy already installed, skipping"
+fi
