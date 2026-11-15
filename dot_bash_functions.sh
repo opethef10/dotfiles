@@ -168,8 +168,8 @@ ntfy() {
     local topic="${NTFY_TOPIC:-$(hostname)}"
 
     if [ -t 0 ]; then
-        curl -d "$*" "${NTFY_URL}/${topic}"
+        curl -H "Markdown: yes" -d "$*" "${NTFY_URL}/${topic}"
     else
-        curl -d @- "${NTFY_URL}/${topic}"
+        curl -H "Markdown: yes" -d @- "${NTFY_URL}/${topic}"
     fi
 }
