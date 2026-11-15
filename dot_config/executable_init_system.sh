@@ -70,14 +70,15 @@ else
 fi
 
 # Hetzner-Zero-Trust-VPS
-if [ -d ~/kod/clones/Hetzner-Zero-Trust-VPS ]; then
+HETZNER_DIR=~/kod/clones/Hetzner-Zero-Trust-VPS
+if [ -d "$HETZNER_DIR/.git" ]; then
   echo "Updating Hetzner-Zero-Trust-VPS..."
-  git -C ~/kod/clones/Hetzner-Zero-Trust-VPS pull
+  git -C "$HETZNER_DIR" pull
 else
   echo "Cloning Hetzner-Zero-Trust-VPS..."
-  git clone https://github.com/marton-harangi/Hetzner-Zero-Trust-VPS.git ~/kod/clones
+  git clone https://github.com/marton-harangi/Hetzner-Zero-Trust-VPS.git "$HETZNER_DIR"
 fi
-chmod +x ~/kod/clones/Hetzner-Zero-Trust-VPS/*.sh
+chmod +x "$HETZNER_DIR"/*.sh
 
 # bat
 sudo apt install bat -y
