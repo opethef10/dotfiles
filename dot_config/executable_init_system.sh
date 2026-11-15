@@ -146,3 +146,13 @@ if ! command -v diff-so-fancy &>/dev/null; then
 else
   echo "diff-so-fancy already installed, skipping"
 fi
+
+# difftastic (used by `git difftool`)
+if ! command -v difft &>/dev/null; then
+  echo "Installing difftastic..."
+  curl -Lo "$WORKDIR/difft.tar.gz" "https://github.com/Wilfred/difftastic/releases/latest/download/difft-$(uname -m)-unknown-linux-gnu.tar.gz"
+  tar xzf "$WORKDIR/difft.tar.gz" -C "$WORKDIR"
+  mv -f "$WORKDIR/difft" ~/.local/bin/difft
+else
+  echo "difftastic already installed, skipping"
+fi
