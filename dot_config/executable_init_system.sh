@@ -123,3 +123,6 @@ if ! command -v yazi &>/dev/null; then
 else
   echo "yazi already installed, skipping"
 fi
+
+# Openers/previewers used by yazi.toml
+sudo apt install zathura libimage-exiftool-perl -y
