@@ -2,3 +2,8 @@
 # WSL-only files
 .local/bin/wopen
 {{- end }}
+{{- if ne .chezmoi.hostname "efonwsl" }}
+# Only this computer runs localias as a service
+.config/systemd/user/localias.service
+.config/systemd/user/default.target.wants/localias.service
+{{- end }}
