@@ -83,17 +83,6 @@ mp4to3() {
 
 notify-send() { wsl-notify-send.exe "${@}"; }
 
-obsidian() {
-    local file_path="$1"
-    if [ -z "$file_path" ]; then
-        echo "Usage: obsidian <file_path>"
-        return 1
-    fi
-
-    local obsidian_link="obsidian://open?vault=gdrive&file=$file_path"
-    open "$obsidian_link"
-}
-
 # If you source this file, it will set WTTR_PARAMS as well as show weather.
 
 # WTTR_PARAMS is space-separated URL parameters, many of which are single characters that can be
