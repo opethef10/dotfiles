@@ -20,7 +20,11 @@ if ! command -v nvim &>/dev/null; then
   echo "Installing neovim..."
   curl -Lo "$WORKDIR/nvim.tar.gz" https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
   tar xzf "$WORKDIR/nvim.tar.gz" -C "$WORKDIR"
-  mv -f "$WORKDIR/nvim-linux-x86_64/bin/nvim" ~/.local/bin/nvim
+  # Keep the whole release dir: nvim needs its runtime (share/nvim/runtime) next to the binary
+  mkdir -p ~/.local/opt
+  rm -rf ~/.local/opt/nvim
+  mv "$WORKDIR/nvim-linux-x86_64" ~/.local/opt/nvim
+  ln -sf ~/.local/opt/nvim/bin/nvim ~/.local/bin/nvim
   echo "neovim installed"
 else
   echo "nvim already installed, skipping"
