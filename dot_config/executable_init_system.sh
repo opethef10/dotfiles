@@ -60,7 +60,7 @@ else
   git clone --depth 1 https://github.com/junegunn/fzf.git "$XDG_DATA_HOME/fzf"
 fi
 echo "Installing fzf..."
-"$XDG_DATA_HOME/fzf/install" --xdg --all --no-update-rc
+"$XDG_DATA_HOME/fzf/install" --bin
 
 # Git Flow
 if ! command -v git-flow &>/dev/null; then
