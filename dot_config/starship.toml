@@ -10,10 +10,6 @@ $localip\
 $time\
 [](fg:lavender bg:peach)\
 $directory\
-[](fg:peach bg:yellow)\
-$git_branch\
-$git_status\
-[](fg:yellow bg:green)\
 $c\
 $rust\
 $golang\
@@ -24,7 +20,8 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:green bg:lavender)\
+([](fg:peach bg:yellow)$git_branch$git_status[](fg:yellow bg:lavender))\
+${custom.no_git}\
 $cmd_duration\
 [](fg:lavender bg:maroon)\
 $status\
@@ -99,6 +96,13 @@ command = 'echo "$(whoami)@$(hostname)"'
 format = '[ $output 󰇧 ]($style)[](fg:mauve bg:lavender)'
 style = "bg:mauve fg:crust"
 
+# Directory block -> duration block arrow, drawn only when there is no git
+# segment (the git group draws its own arrows). Walks up looking for .git.
+[custom.no_git]
+when = 'd=$PWD; while :; do [ -e "$d/.git" ] && exit 1; [ -z "$d" ] && exit 0; d=${d%/*}; done'
+command = 'echo x'
+format = '[](fg:peach bg:lavender)'
+
 [localip]
 ssh_only = false
 style = "bg:red fg:crust"
@@ -152,53 +156,53 @@ deleted = "✘ ${count} "
 
 [nodejs]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [bun]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [c]
 symbol = " "
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [php]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [java]
 symbol = " "
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version) ](fg:crust bg:peach)]($style)'
 
 [python]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
+style = "bg:peach"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:peach)]($style)'
 python_binary = [['uv', 'run', '--no-python-downloads', '--no-project', 'python']]
 
 [docker_context]
