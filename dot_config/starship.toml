@@ -2,7 +2,6 @@
 
 format = """
 [╭](fg:gray10)\
-[](red)\
 ${custom.local_os}\
 ${custom.vps_os}\
 ${custom.local_userhost}\
@@ -79,13 +78,13 @@ disabled = false
 [custom.local_os]
 when = '[ -z "$SSH_CONNECTION" ]'
 command = 'id=$(. /etc/os-release 2>/dev/null; echo "$ID"); case "$id" in ubuntu) printf "󰕈";; debian) printf "󰣚";; arch) printf "󰣇";; fedora) printf "󰣛";; *) printf "󰌽";; esac'
-format = '[ $output ]($style)'
+format = '[](red)[ $output ]($style)'
 style = "bg:red fg:crust"
 
 [custom.vps_os]
 when = '[ -n "$SSH_CONNECTION" ]'
 command = 'id=$(. /etc/os-release 2>/dev/null; echo "$ID"); case "$id" in ubuntu) printf "󰕈";; debian) printf "󰣚";; arch) printf "󰣇";; fedora) printf "󰣛";; *) printf "󰌽";; esac'
-format = '[ $output ]($style)'
+format = '[](mauve)[ $output ]($style)'
 style = "bg:mauve fg:crust"
 
 [custom.local_userhost]
@@ -96,8 +95,8 @@ style = "bg:red fg:crust"
 
 [custom.vps_userhost]
 when = '[ -n "$SSH_CONNECTION" ]'
-command = 'echo "$(whoami)@$(hostname) 🌐"'
-format = '[ $output ]($style)[](fg:mauve bg:lavender)'
+command = 'echo "$(whoami)@$(hostname)"'
+format = '[ $output 󰇧 ]($style)[](fg:mauve bg:lavender)'
 style = "bg:mauve fg:crust"
 
 [localip]
