@@ -4,10 +4,9 @@ format = """
 [╭](fg:gray10)\
 [](red)\
 $os\
-$username\
-$hostname\
+${custom.local_userhost}\
+${custom.vps_userhost}\
 $localip\
-[](fg:red bg:lavender)\
 $time\
 [](fg:lavender bg:peach)\
 $directory\
@@ -73,6 +72,20 @@ ssh_only = false
 style = "bg:red fg:crust"
 format = '[@$hostname$ssh_symbol ]($style)'
 disabled = false
+
+# user@host block: red locally, mauve when logged in over SSH (VPS).
+# Each block draws its own trailing arrow so the separator matches its color.
+[custom.local_userhost]
+when = '[ -z "$SSH_CONNECTION" ]'
+command = 'echo "$(whoami)@$(hostname)"'
+format = '[ $output ]($style)[](fg:red bg:lavender)'
+style = "bg:red fg:crust"
+
+[custom.vps_userhost]
+when = '[ -n "$SSH_CONNECTION" ]'
+command = 'echo "$(whoami)@$(hostname)"'
+format = '[](fg:red bg:mauve)[ $output ]($style)[](fg:mauve bg:lavender)'
+style = "bg:mauve fg:crust"
 
 [localip]
 ssh_only = false
