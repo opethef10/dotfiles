@@ -27,6 +27,23 @@ bind -n M-Down select-pane -D
 bind -n S-Left  previous-window
 bind -n S-Right next-window
 
+{{- if $vps }}
+# Fuzzy jump (tmux-fzf) on servers: Alt+Shift+o window, +s session, +i pane, +p command palette, +n new window from zoxide dir
+# Shifted variants of the local keys: the local tmux binds Alt+o/s/i/p/n and would shadow a nested tmux
+bind -n M-O run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/window.sh switch"
+bind -n M-S run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/session.sh switch"
+bind -n M-I run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/pane.sh switch"
+bind -n M-P run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/command.sh"
+bind -n M-N run-shell -b "~/.local/bin/tmux-zwin"
+{{- else }}
+# Fuzzy jump (tmux-fzf): Alt+o window, Alt+s session, Alt+i pane, Alt+p command palette, Alt+n new window from zoxide dir
+bind -n M-o run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/window.sh switch"
+bind -n M-s run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/session.sh switch"
+bind -n M-i run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/pane.sh switch"
+bind -n M-p run-shell -b "~/.local/share/tmux/plugins/tmux-fzf/scripts/command.sh"
+bind -n M-n run-shell -b "~/.local/bin/tmux-zwin"
+{{- end }}
+
 bind y source-file ~/.config/tmux/tmux.conf
 
 set -g mouse on
@@ -95,12 +112,14 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'jaclu/tmux-menus'
+set -g @plugin 'sainnhe/tmux-fzf'
 set -g @plugin 'tmux-plugins/tmux-sidebar'
 set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'catppuccin/tmux#v2.3.0'
 
 set -g @continuum-restore 'on'
+TMUX_FZF_OPTIONS="-p -w 85% -h 75% -m"
 
 run '~/.local/share/tmux/plugins/tpm/tpm'
 

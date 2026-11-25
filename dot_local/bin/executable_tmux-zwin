@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Pick a directory from zoxide with fzf. If a tmux window already has a pane in that
+# directory (or a window named after the folder), jump to it; otherwise open a new window.
+for c in zoxide fzf-tmux; do
+  command -v "$c" >/dev/null || { tmux display-message "tmux-zwin: $c not installed"; exit 0; }
+done
+
+dir=$(zoxide query -l | fzf-tmux -p -w 85% -h 75% --prompt='dir> ') || exit 0
+[ -n "$dir" ] || exit 0
+name=$(basename "$dir")
+
+target=$(tmux list-panes -a -F '#{session_name}:#{window_index}|#{pane_current_path}|#{window_name}' |
+  awk -F'|' -v d="$dir" -v n="$name" '$2 == d || $3 == n { print $1; exit }')
+
+if [ -n "$target" ]; then
+  tmux switch-client -t "$target" 2>/dev/null
+  tmux select-window -t "$target"
+else
+  tmux new-window -c "$dir" -n "$name"
+fi
