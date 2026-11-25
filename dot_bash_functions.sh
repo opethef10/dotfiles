@@ -162,3 +162,13 @@ ntfy() {
         curl -H "Markdown: yes" -d @- "${NTFY_URL}/${topic}"
     fi
 }
+
+# Claude Code on lisboa runs in a memory-capped systemd scope so one session
+# (and the builds/tests it starts) can't starve the containers. Override with CLAUDE_MEMORY_MAX.
+claude() {
+    if [ "$(hostname)" = "lisboa" ] && command -v systemd-run >/dev/null 2>&1; then
+        systemd-run --user --scope --quiet -p MemoryMax="${CLAUDE_MEMORY_MAX:-1G}" "$(command -v claude)" "$@"
+    else
+        command claude "$@"
+    fi
+}
