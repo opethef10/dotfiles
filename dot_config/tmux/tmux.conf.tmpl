@@ -88,6 +88,20 @@ set -g @catppuccin_window_status_style "rounded"
 set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M"
 set -g @catppuccin_window_flags "icon"
 
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.local/share/tmux/plugins"
+set -g @plugin 'tmux-plugins/tpm'
+
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'jaclu/tmux-menus'
+set -g @plugin 'sainnhe/tmux-fzf'
+set -g @plugin 'tmux-plugins/tmux-sidebar'
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+
+# Load catppuccin manually so its options exist before status-right is built
+run '~/.local/share/tmux/plugins/tmux/catppuccin.tmux'
+
 # Make the status line pretty and add some modules
 set -g status-right-length 100
 set -g status-left-length 100
@@ -106,17 +120,6 @@ set -agF status-right "#{E:@catppuccin_status_load}"
 {{- end }}
 set -ag status-right "#{E:@catppuccin_status_uptime}"
 set -ag status-right "#{E:@catppuccin_status_date_time}"
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.local/share/tmux/plugins"
-set -g @plugin 'tmux-plugins/tpm'
-
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'jaclu/tmux-menus'
-set -g @plugin 'sainnhe/tmux-fzf'
-set -g @plugin 'tmux-plugins/tmux-sidebar'
-set -g @plugin 'tmux-plugins/tmux-battery'
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'catppuccin/tmux#v2.3.0'
 
 set -g @continuum-restore 'on'
 TMUX_FZF_OPTIONS="-p -w 85% -h 75% -m"
